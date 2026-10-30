@@ -1,0 +1,6 @@
+{
+  "name": "WeldBro - Smart Welding Business Management & Marketplace",
+  "description": "WeldBro is the complete professional welding marketplace, shop management, smart measurement diagram generator, material calculator, and billing platform for welders, fabricators, and customers.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

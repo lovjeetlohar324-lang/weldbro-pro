@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with role-based access for WeldBro",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["welder", "customer", "admin", "worker"] },
+        "shopName": { "type": "string" },
+        "shopAddress": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "experienceYears": { "type": "number" },
+        "skills": { "type": "string" },
+        "services": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "phone", "role"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Fabrication order and quotation record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "receiptNumber": { "type": "string" },
+        "customerId": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "welderId": { "type": "string" },
+        "shopName": { "type": "string" },
+        "title": { "type": "string" },
+        "status": { "type": "string" },
+        "totalAmount": { "type": "number" },
+        "advancePayment": { "type": "number" },
+        "remainingBalance": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "customerId", "welderId", "totalAmount", "status"]
+    },
+    "ChatMessage": {
+      "title": "ChatMessage",
+      "description": "Secure in-app communication between welder and customer",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderRole": { "type": "string" },
+        "receiverId": { "type": "string" },
+        "text": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["id", "senderId", "text"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "User profile documents indexed by Firebase Auth UID"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/Order" },
+      "description": "Orders and quotations between customers and welders"
+    },
+    "/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ChatMessage" },
+      "description": "Direct communication messages"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "WeldBro Pro",
+  "short_name": "WeldBro",
+  "description": "All-in-one welding management, smart measurement diagram generator, material calculator, and billing platform for welders, fabricators, and customers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#213378",
+  "theme_color": "#213378",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
