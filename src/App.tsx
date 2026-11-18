@@ -15,6 +15,7 @@ import { AdminPanel } from './components/AdminPanel';
 import { AuthModal } from './components/AuthModal';
 import { UserProfileModal } from './components/UserProfileModal';
 import { testConnection } from './services/firebase';
+import { Analytics } from '@vercel/analytics/react';
 import {
   Compass,
   Boxes,
@@ -322,6 +323,9 @@ const MainAppContent: React.FC = () => {
         isOpen={profileModalOpen}
         onClose={() => setProfileModalOpen(false)}
       />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 };
